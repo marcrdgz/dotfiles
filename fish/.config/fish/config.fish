@@ -6,6 +6,8 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+export EDITOR="vim"
+
 set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 
 set fish_greeting "$(fish --version)"
@@ -43,11 +45,22 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # GIT
 abbr -a gst "git status"
 abbr -a gco "git checkout"
+abbr -a gcob "git checkout -b"
 abbr -a gcm "git commit -m"
 abbr -a gp "git push"
 abbr -a gpl "git pull"
+abbr -a gaa "git add --all"
 
-# start starship prompt if installed
+# start starship prompt 
 if command -q starship
     starship init fish | source
 end
+
+# start zoxide (cd replacement)
+if command -q zoxide
+    zoxide init fish | source
+    alias cd="z"
+end
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
