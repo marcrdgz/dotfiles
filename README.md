@@ -11,5 +11,5 @@
 We need to source all of the configurations by running the following command:
 
 ```bash
-stow -t $HOME -v nvim tmux fish ghostty
+stow -t $HOME -v nvim tmux fish ghostty claude
 ```
